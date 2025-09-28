@@ -1,0 +1,8 @@
+km = float(input('Quantos KM você andou?: '))
+dia = int(input('Quantos dias você usou o carro?: '))
+diaria = float(input('Qual o valor da diária?: '))
+preço_por_km = float(input('Qual o valor por KM rodado?: '))
+aluguel = (dia * diaria) + (preço_por_km * km)
+print(f'Você andou {km:.0f} KM')
+print(f'Durante {dia} dias')
+print(f'Seu aluguel ficou R$ {aluguel:.2f}')
