@@ -1,5 +1,8 @@
 {
     "python.analysis.extraPaths": [
         "./Lib/site-packages"
+    ],
+    "cursorpyright.analysis.extraPaths": [
+        "./Lib/site-packages"
     ]
 }
