@@ -32,7 +32,7 @@ Este repositório contém os exercícios e projetos organizados de acordo com os
 
 ## 📫 Como se Conectar
 
-* **LinkedIn:** Daniel Félix de Oliveira (https://www.linkedin.com/in/danielfelix-dev/)
+* **LinkedIn:** Daniel Félix de Oliveira (https://www.linkedin.com/in/danfelix-dev/)
 
 ---
 *Este README é um documento vivo e será atualizado constantemente conforme eu avanço nos estudos.*
