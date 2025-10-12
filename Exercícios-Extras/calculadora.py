@@ -1,43 +1,76 @@
-# Iniciamos um loop "infinito" que só será quebrado quando o usuário decidir sair.
-while True:
+def obter_numero(mensagem):
+    """Solicita e valida a entrada de um número."""
+    while True:
+        try:
+            return float(input(mensagem))
+        except ValueError:
+            print("Por favor, digite um número válido.")
+
+def exibir_menu():
+    """Exibe o menu de operações disponíveis."""
     print("\n--- Calculadora Python ---")
-
-    # Etapa 1: Obter os números do usuário
-    num1 = float(input("Digite o primeiro número: "))
-    num2 = float(input("Digite o segundo número: "))
-
-    # Etapa 2: Obter a operação desejada
     print("Escolha a operação:")
     print("[+] para Soma")
     print("[-] para Subtração")
     print("[*] para Multiplicação")
     print("[/] para Divisão")
-    operacao = input("Qual operador você deseja realizar? ")
 
-    # Etapa 3: Usar if/elif/else para calcular e mostrar o resultado
-    if operacao == '+':
-        resultado = num1 + num2
-        print(f'O resuldado de {num1} + {num2} é: {resultado}')
-    elif operacao == '-':
-        resultado = num1 - num2
-        print(f'O resultado de {num1} - {num2} é: {resultado}')
-    elif operacao == '*':
-        resultado = num1 * num2
-        print(f'O resultado de {num1} * {num2} é: {resultado}')
-    elif operacao == '/':
-        # Verificação especial para evitar divisão por zero, um erro comum!
-        if num2 == 0:
-            print('Erro: Não é possível dividir por zero.')
-        else:
-            resultado = num1 / num2
-            print(f'O resultado de {num1} / {num2} é: {resultado}')
-    else:
-        # Caso o usuário digite uma operação inválida
-        print('Operação inválida. Por favor, tente novamente.')
+def soma(x, y):
+    return x + y
+
+def subtracao(x, y):
+    return x - y
+
+def multiplicacao(x, y):
+    return x * y
+
+def divisao(x, y):
+    if y == 0:
+        raise ValueError("Não é possível dividir por zero.")
+    return x / y
+
+# Dicionário com as operações disponíveis
+OPERACOES = {
+    '+': {'func': soma, 'nome': 'soma'},
+    '-': {'func': subtracao, 'nome': 'subtração'},
+    '*': {'func': multiplicacao, 'nome': 'multiplicação'},
+    '/': {'func': divisao, 'nome': 'divisão'}
+}
+
+def calcular(num1, num2, operacao):
+    """Realiza o cálculo com base na operação escolhida."""
+    if operacao not in OPERACOES:
+        raise ValueError("Operação inválida")
     
-    # Etapa 4 (Extra): Perguntar se o usuário quer continuar
-    continuar = input('\nDeseja fazer outro cálculo? (s/n): ')
-    if continuar.lower() != 's':
-        print('Obrigado por usar a calculadora. Até mais!')
-        break # Este comando quebra o loop 'While' e encerra o programa.
+    return OPERACOES[operacao]['func'](num1, num2)
+
+def main():
+    """Função principal da calculadora."""
+    while True:
+        exibir_menu()
+        
+        # Obtendo os números
+        num1 = obter_numero("Digite o primeiro número: ")
+        num2 = obter_numero("Digite o segundo número: ")
+        
+        # Obtendo a operação
+        operacao = input("Qual operação você deseja realizar? ")
+        
+        # Realizando o cálculo
+        try:
+            resultado = calcular(num1, num2, operacao)
+            print(f'\nO resultado da {OPERACOES[operacao]["nome"]} entre {num1} e {num2} é: {resultado}')
+        except ValueError as erro:
+            print(f'\nErro: {erro}')
+        except Exception as erro:
+            print(f'\nOcorreu um erro inesperado: {erro}')
+        
+        # Verificando se o usuário quer continuar
+        continuar = input('\nDeseja fazer outro cálculo? (s/n): ').lower()
+        if continuar != 's':
+            print('Obrigado por usar a calculadora. Até mais!')
+            break
+
+if __name__ == "__main__":
+    main()
 
