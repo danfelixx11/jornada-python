@@ -23,11 +23,11 @@ Este repositório contém os exercícios e projetos organizados de acordo com os
 
 * ✅ **Mundo 1 (Fundamentos):** 35 exercícios concluídos.
 * ✅ **Mundo 2 (Estruturas de Controle):** 36 exercícios concluídos.
-* ⏳ **Mundo 3 (Estruturas Compostas):** Em andamento...
+* ✅ **Mundo 3 (Estruturas Compostas):** 44 exercícios concluídos.
 
 ## 📈 Meu Progresso Atual
 
-* **Total de Exercícios Resolvidos:** 71
+* **Total de Exercícios Resolvidos:** 115
 * **Último Commit:** `git log -1 --pretty=%B` (Este é um marcador que o Git pode atualizar)
 
 ## 📫 Como se Conectar
